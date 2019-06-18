@@ -14,7 +14,7 @@ class line:
         self.drawn_points = []
         for i in range(self.num_points):
             point = self.points[i]
-            angle = self.angle+math.pi*i/720
+            angle = math.pi*i/(30*self.num_points)
             y = point[1]*math.cos(angle)+point[0]*math.sin(angle)
             x = point[0]*math.cos(angle)-point[1]*math.sin(angle)
             self.points[i] = (x,y)
@@ -32,7 +32,7 @@ class main:
         pygame.init()
         self._display_surf = pygame.display.set_mode(self.size, 0, 32)
         self._running = True
-        self.line = line(16, self.size)
+        self.line = line(32, self.size)
     def on_event(self, event):
         if event.type == pygame.QUIT:
             self._running = False
