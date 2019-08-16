@@ -1,4 +1,4 @@
-import pygame, math
+import pygame, math, sys
 
 class line:
     def __init__(self, num_points, size):
@@ -26,13 +26,13 @@ class main:
     def __init__(self):
         self._running = True
         self._display_surf = None
-        self.size = (512, 512)
+        self.size = (800, 800)
 
     def on_init(self):
         pygame.init()
         self._display_surf = pygame.display.set_mode(self.size, 0, 32)
         self._running = True
-        self.line = line(32, self.size)
+        self.line = line(128, self.size)
     def on_event(self, event):
         if event.type == pygame.QUIT:
             self._running = False
